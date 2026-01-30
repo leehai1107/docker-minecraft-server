@@ -3,6 +3,7 @@ services:
     image: itzg/minecraft-server
     environment:
       EULA: "true"
+      ONLINE_MODE: "false"
       RCON_CMDS_STARTUP: |-
         gamerule keepInventory true
     ports:
