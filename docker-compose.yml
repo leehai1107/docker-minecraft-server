@@ -5,7 +5,7 @@ services:
       EULA: "true"
       ONLINE_MODE: "false"
       RCON_CMDS_STARTUP: |-
-        gamerule keepInventory true
+        /gamerule keepInventory true
     ports:
       - "25565:25565"
     volumes:
