@@ -13,12 +13,12 @@ ARG EXTRA_DNF_PACKAGES=""
 ARG EXTRA_ALPINE_PACKAGES=""
 ARG FORCE_INSTALL_PACKAGES=1
 RUN --mount=target=/build,source=build \
-    TARGET=${TARGETARCH}${TARGETVARIANT} \
-    /build/run.sh install-packages
+  TARGET=${TARGETARCH}${TARGETVARIANT} \
+  /build/run.sh install-packages
 COPY --from=tianon/gosu /gosu /usr/local/bin/
 
 RUN --mount=target=/build,source=build \
-    /build/run.sh setup-user
+  /build/run.sh setup-user
 
 EXPOSE 25565
 
@@ -55,10 +55,9 @@ ARG MC_HELPER_BASE_URL=${GITHUB_BASEURL}/itzg/mc-image-helper/releases/download/
 ARG MC_HELPER_REV=1
 RUN curl -fsSL ${MC_HELPER_BASE_URL}/mc-image-helper-${MC_HELPER_VERSION}.tgz \
   | tar -C /usr/share -zxf - \
-    && ln -s /usr/share/mc-image-helper-${MC_HELPER_VERSION}/ /usr/share/mc-image-helper \
-    && ln -s /usr/share/mc-image-helper/bin/mc-image-helper /usr/bin
+  && ln -s /usr/share/mc-image-helper-${MC_HELPER_VERSION}/ /usr/share/mc-image-helper \
+  && ln -s /usr/share/mc-image-helper/bin/mc-image-helper /usr/bin
 
-VOLUME ["/data"]
 WORKDIR /data
 
 STOPSIGNAL SIGTERM

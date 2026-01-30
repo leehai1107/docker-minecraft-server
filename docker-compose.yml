@@ -3,6 +3,8 @@ services:
     image: itzg/minecraft-server
     environment:
       EULA: "true"
+      RCON_CMDS_STARTUP: |-
+        gamerule keepInventory true
     ports:
       - "25565:25565"
     volumes:
